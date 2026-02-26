@@ -23,17 +23,18 @@ export default function Home() {
       <header className="relative">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4040400a_1px,transparent_1px),linear-gradient(to_bottom,#4040400a_1px,transparent_1px)] bg-[size:24px_24px] opacity-30" />
         <nav className="relative z-10 flex items-center justify-between gap-4 px-6 py-6 md:px-12">
-          <span className="text-xl font-bold tracking-wider text-amber-500">
-            BREATHLESS
-          </span>
-          <div className="flex items-center gap-4">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/KongIcon.png"
+              alt="Breathless"
+              width={280}
+              height={80}
+              className="h-28 w-auto md:h-32"
+              priority
+            />
+          </Link>
+          <div className="-mt-2 flex items-center gap-4">
             <RulesDropdown />
-            <Link
-              href="#"
-              className="text-sm font-medium text-zinc-400 transition-colors hover:text-amber-500"
-            >
-              {t.nav.mods}
-            </Link>
             <Link
               href="/story"
               className="text-sm font-medium text-zinc-400 transition-colors hover:text-amber-500"
@@ -161,7 +162,7 @@ export default function Home() {
                 {t.footer.rules}
               </Link>
               <Link
-                href="https://discord.gg/E9HXhsQssW"
+                href="https://discord.com/channels/1375764048045408327/1475149119772168335"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-zinc-500 hover:text-amber-500"

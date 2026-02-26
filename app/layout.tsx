@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "Breathless | DayZ Server",
   description:
     "Join the Breathless server - An immersive and unique DayZ experience",
+  icons: {
+    icon: "/KongIcon.png",
+  },
 };
 
 export default function RootLayout({

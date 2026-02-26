@@ -66,13 +66,16 @@ export default function StoryPage() {
 
       {/* Nav */}
       <nav className="relative z-10 flex items-center justify-between gap-4 px-6 py-6 md:px-12">
-        <Link
-          href="/"
-          className="text-xl font-bold tracking-wider text-amber-500 hover:text-amber-400"
-        >
-          BREATHLESS
+        <Link href="/" className="flex items-center">
+            <Image
+              src="/KongIcon.png"
+              alt="Breathless"
+              width={280}
+              height={80}
+              className="h-12 w-auto md:h-16"
+          />
         </Link>
-        <div className="flex items-center gap-4">
+        <div className="-mt-2 flex items-center gap-4">
           <RulesDropdown />
           <Link
             href="#"
