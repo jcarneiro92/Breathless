@@ -74,19 +74,10 @@ export default function Home() {
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link
-              href="https://dayzbeanslauncher.com/download?ref=HUSXSUV9"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="dayzbeans://server/connect/37.187.150.189:2302"
               className="rounded-lg bg-amber-500 px-8 py-4 font-semibold text-zinc-950 transition-all hover:bg-amber-400"
             >
               <span className="flex items-center gap-3">
-                <Image
-                  src="/dayz_beans_launcher.ico"
-                  alt="DayZ Beans Launcher"
-                  width={28}
-                  height={28}
-                  className="h-7 w-7"
-                />
                 <span>{t.hero.joinServer}</span>
               </span>
             </Link>
@@ -137,22 +128,38 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-zinc-800/80 bg-zinc-950/60 backdrop-blur-sm px-6 py-8 md:px-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6">
-          {/* VYKIX Banner */}
-          <Link
-            href="https://www.vykix.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full max-w-md transition-opacity hover:opacity-90"
-          >
-            <Image
-              src="/vykix.gif"
-              alt="VYKIX - DayZ Game Server Hosting"
-              width={468}
-              height={60}
-              className="h-auto w-full rounded-lg object-contain"
-              unoptimized
-            />
-          </Link>
+          {/* Partner Banners */}
+          <div className="flex w-full flex-col items-center justify-center gap-4 md:flex-row md:justify-between">
+            <Link
+              href="https://www.vykix.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full max-w-md transition-opacity hover:opacity-90"
+            >
+              <Image
+                src="/vykix.gif"
+                alt="VYKIX - DayZ Game Server Hosting"
+                width={468}
+                height={60}
+                className="h-auto w-full rounded-lg object-contain"
+                unoptimized
+              />
+            </Link>
+            <Link
+              href="https://dayzbeanslauncher.com/download?ref=HUSXSUV9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full max-w-[140px] transition-opacity hover:opacity-90"
+            >
+              <Image
+                src="/beans.png"
+                alt="DayZ Beans Launcher"
+                width={140}
+                height={35}
+                className="h-auto w-full rounded-lg object-contain"
+              />
+            </Link>
+          </div>
           <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
             <span className="text-sm text-zinc-500">
               © {new Date().getFullYear()} Breathless. {t.footer.rights}

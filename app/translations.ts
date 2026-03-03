@@ -33,8 +33,8 @@ export const translations: Record<
       titleHighlight: "Conquer.",
       subtitle:
         "Join a community of survivors. A unique DayZ server with carefully selected mods for an immersive experience.",
-      joinServer: "DayZ Beans Launcher",
-      discord: "Discord",
+      joinServer: "Join with DayZ Beans Launcher",
+      discord: "Join us on Discord",
     },
     features: {
       title: "Why Breathless?",
