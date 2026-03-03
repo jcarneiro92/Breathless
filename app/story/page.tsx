@@ -65,17 +65,17 @@ export default function StoryPage() {
       <div className="fixed inset-0 -z-10 bg-zinc-950/80" />
 
       {/* Nav */}
-      <nav className="relative z-10 flex items-center justify-between gap-4 px-6 py-6 md:px-12">
-        <Link href="/" className="flex items-center">
-            <Image
-              src="/KongIcon.png"
-              alt="Breathless"
-              width={280}
-              height={80}
-              className="h-12 w-auto md:h-16"
+      <nav className="relative z-10 flex flex-wrap items-center justify-center gap-4 px-4 py-4 sm:px-6 md:px-12 md:py-6 md:justify-between">
+        <Link href="/" className="flex items-center justify-center">
+          <Image
+            src="/KongIcon.png"
+            alt="Breathless"
+            width={280}
+            height={80}
+            className="h-10 w-auto sm:h-12 md:h-16"
           />
         </Link>
-        <div className="-mt-2 flex items-center gap-4">
+        <div className="-mt-1 flex flex-wrap items-center justify-center gap-3 text-sm sm:gap-4 md:ml-auto md:justify-end">
           <RulesDropdown />
           <Link
             href="#"

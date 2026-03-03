@@ -22,18 +22,18 @@ export default function Home() {
       {/* Hero Section */}
       <header className="relative">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4040400a_1px,transparent_1px),linear-gradient(to_bottom,#4040400a_1px,transparent_1px)] bg-[size:24px_24px] opacity-30" />
-        <nav className="relative z-10 flex items-center justify-between gap-4 px-6 py-6 md:px-12">
-          <Link href="/" className="flex items-center">
+        <nav className="relative z-10 flex flex-wrap items-center justify-center gap-4 px-4 py-4 sm:px-6 md:px-12 md:py-6 md:justify-between">
+          <Link href="/" className="flex items-center justify-center">
             <Image
               src="/KongIcon.png"
               alt="Breathless"
               width={280}
               height={80}
-              className="h-28 w-auto md:h-32"
+              className="h-20 w-auto sm:h-24 md:h-28"
               priority
             />
           </Link>
-          <div className="-mt-2 flex items-center gap-4">
+          <div className="-mt-1 flex flex-wrap items-center justify-center gap-3 text-sm sm:gap-4 md:ml-auto md:justify-end">
             <RulesDropdown />
             <Link
               href="/story"
@@ -74,10 +74,21 @@ export default function Home() {
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link
-              href="#"
+              href="https://dayzbeanslauncher.com/download?ref=HUSXSUV9"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-lg bg-amber-500 px-8 py-4 font-semibold text-zinc-950 transition-all hover:bg-amber-400"
             >
-              {t.hero.joinServer}
+              <span className="flex items-center gap-3">
+                <Image
+                  src="/dayz_beans_launcher.ico"
+                  alt="DayZ Beans Launcher"
+                  width={28}
+                  height={28}
+                  className="h-7 w-7"
+                />
+                <span>{t.hero.joinServer}</span>
+              </span>
             </Link>
             <Link
               href="https://discord.gg/E9HXhsQssW"
