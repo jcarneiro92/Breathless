@@ -43,13 +43,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLanguageState(code);
     if (typeof window !== "undefined") {
       localStorage.setItem(STORAGE_KEY, code);
-      document.documentElement.lang = code === "zh" ? "zh-CN" : code;
+      document.documentElement.lang = code;
     }
   }, []);
 
   useEffect(() => {
     if (mounted) {
-      document.documentElement.lang = language === "zh" ? "zh-CN" : language;
+      document.documentElement.lang = language;
     }
   }, [language, mounted]);
 
