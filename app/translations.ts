@@ -7,7 +7,7 @@ export type LanguageCode = "en";
 export const translations: Record<
   LanguageCode,
   {
-    nav: { rules: string; mods: string; story: string; discord: string; donate: string };
+    nav: { rules: string; mods: string; story: string; review: string; discord: string; donate: string };
     hero: {
       badge: string;
       title: string;
@@ -22,11 +22,24 @@ export const translations: Record<
       staff: { title: string; description: string };
       community: { title: string; description: string };
     };
-    footer: { rights: string; story: string; rules: string; discord: string; donate: string };
+    footer: { rights: string; story: string; rules: string; review: string; discord: string; donate: string };
+    review: {
+      title: string;
+      subtitle: string;
+      formName: string;
+      formRating: string;
+      formComment: string;
+      submit: string;
+      noReviews: string;
+      reviewsCount: string;
+      adminMode: string;
+      exitAdmin: string;
+      deleteReview: string;
+    };
   }
 > = {
   en: {
-    nav: { rules: "Rules", mods: "Mods", story: "Story", discord: "Discord", donate: "Donate" },
+    nav: { rules: "Rules", mods: "Mods", story: "Story", review: "Reviews", discord: "Discord", donate: "Donate" },
     hero: {
       badge: "DayZ Server",
       title: "Survive. Explore. ",
@@ -58,8 +71,22 @@ export const translations: Record<
       rights: "All rights reserved.",
       story: "Story",
       rules: "Rules",
+      review: "Reviews",
       discord: "Discord",
       donate: "Donate",
+    },
+    review: {
+      title: "Server Reviews",
+      subtitle: "Share your experience on Breathless. Your feedback helps other survivors.",
+      formName: "Name or in-game name",
+      formRating: "Rating",
+      formComment: "Your review",
+      submit: "Submit review",
+      noReviews: "No reviews yet. Be the first to share your experience!",
+      reviewsCount: "Reviews",
+      adminMode: "Admin",
+      exitAdmin: "Exit admin",
+      deleteReview: "Delete",
     },
   },
 };

@@ -90,6 +90,12 @@ export default function StoryPage() {
             {t.nav.story}
           </Link>
           <Link
+            href="/review"
+            className="text-sm font-medium text-zinc-400 transition-colors hover:text-amber-500"
+          >
+            {t.nav.review}
+          </Link>
+          <Link
             href="https://discord.gg/E9HXhsQssW"
             target="_blank"
             rel="noopener noreferrer"
@@ -120,7 +126,7 @@ export default function StoryPage() {
             title="VYKIX Discord"
           >
             <Image
-              src="/vykix.gif"
+              src="/v.ico"
               alt="VYKIX Discord"
               width={240}
               height={40}
@@ -208,6 +214,18 @@ export default function StoryPage() {
                 className="text-sm text-zinc-500 hover:text-amber-500"
               >
                 Home
+              </Link>
+              <Link
+                href="/story"
+                className="text-sm text-zinc-500 hover:text-amber-500"
+              >
+                {t.footer.story}
+              </Link>
+              <Link
+                href="/review"
+                className="text-sm text-zinc-500 hover:text-amber-500"
+              >
+                {t.footer.review}
               </Link>
               <Link
                 href="https://discord.gg/E9HXhsQssW"
