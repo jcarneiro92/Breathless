@@ -13,8 +13,9 @@ export type Review = {
 const REVIEWS_PATH = path.join(process.cwd(), "data", "reviews.json");
 const BLOB_STORE_KEY = "reviews";
 
-function useNetlifyBlob(): boolean {
-  return process.env.NETLIFY === "true";
+function isNetlifyBlobAvailable(): boolean {
+  // Netlify sets this context env var when Blobs are wired for the runtime.
+  return typeof process.env.NETLIFY_BLOBS_CONTEXT === "string";
 }
 
 async function getReviewsFromFile(): Promise<Review[]> {
@@ -35,7 +36,7 @@ async function getReviewsFromBlob(): Promise<Review[]> {
 }
 
 export async function getReviews(): Promise<Review[]> {
-  if (useNetlifyBlob()) return getReviewsFromBlob();
+  if (isNetlifyBlobAvailable()) return getReviewsFromBlob();
   return getReviewsFromFile();
 }
 
@@ -53,7 +54,7 @@ async function saveToBlob(reviews: Review[]): Promise<void> {
 export async function addReview(review: Review): Promise<Review[]> {
   const reviews = await getReviews();
   const next = [review, ...reviews];
-  if (useNetlifyBlob()) {
+  if (isNetlifyBlobAvailable()) {
     await saveToBlob(next);
   } else {
     await saveToFile(next);
@@ -65,7 +66,7 @@ export async function deleteReview(id: string): Promise<Review[]> {
   const reviews = await getReviews();
   const next = reviews.filter((r) => r.id !== id);
   if (next.length === reviews.length) return reviews;
-  if (useNetlifyBlob()) {
+  if (isNetlifyBlobAvailable()) {
     await saveToBlob(next);
   } else {
     await saveToFile(next);
