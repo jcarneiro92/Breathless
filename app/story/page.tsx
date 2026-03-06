@@ -109,6 +109,43 @@ export default function StoryPage() {
         </div>
       </nav>
 
+      {/* Partner Discord links - just below header, top right */}
+      <div className="absolute top-24 right-0 z-10 flex justify-end px-4 py-2 md:top-28 md:px-12">
+        <div className="flex items-center gap-4">
+          <Link
+            href="https://discord.gg/2nQcNzc7qf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center transition-opacity hover:opacity-90"
+            title="VYKIX Discord"
+          >
+            <Image
+              src="/vykix.gif"
+              alt="VYKIX Discord"
+              width={240}
+              height={40}
+              className="h-10 w-auto max-w-[200px] object-contain sm:max-w-[240px]"
+              unoptimized
+            />
+          </Link>
+          <Link
+            href="https://discord.gg/PNpDF7cV74"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center transition-opacity hover:opacity-90"
+            title="DayZ Beans Launcher Discord"
+          >
+            <Image
+              src="/dayz_beans_launcher.ico"
+              alt="DayZ Beans Launcher Discord"
+              width={48}
+              height={48}
+              className="h-12 w-12"
+            />
+          </Link>
+        </div>
+      </div>
+
       {/* Story Tab Content */}
       <main className="relative z-10 px-6 py-12 md:px-12 md:py-16">
         <div className="mx-auto max-w-3xl">
