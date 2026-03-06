@@ -78,12 +78,6 @@ export default function StoryPage() {
         <div className="-mt-1 flex flex-wrap items-center justify-center gap-3 text-sm sm:gap-4 md:ml-auto md:justify-end">
           <RulesDropdown />
           <Link
-            href="#"
-            className="text-sm font-medium text-zinc-400 transition-colors hover:text-amber-500"
-          >
-            {t.nav.mods}
-          </Link>
-          <Link
             href="/story"
             className="text-sm font-medium text-amber-500"
           >

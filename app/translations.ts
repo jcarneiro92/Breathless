@@ -7,7 +7,7 @@ export type LanguageCode = "en";
 export const translations: Record<
   LanguageCode,
   {
-    nav: { rules: string; mods: string; story: string; review: string; discord: string; donate: string };
+    nav: { rules: string; story: string; review: string; discord: string; donate: string };
     hero: {
       badge: string;
       title: string;
@@ -39,7 +39,7 @@ export const translations: Record<
   }
 > = {
   en: {
-    nav: { rules: "Rules", mods: "Mods", story: "Story", review: "Reviews", discord: "Discord", donate: "Donate" },
+    nav: { rules: "Rules", story: "Story", review: "Reviews", discord: "Discord", donate: "Donate" },
     hero: {
       badge: "DayZ Server",
       title: "Survive. Explore. ",
