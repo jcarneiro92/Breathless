@@ -41,9 +41,13 @@ export async function POST(request: Request) {
   }
 }
 
+function normalizeSecret(s: string | null | undefined): string {
+  return (s ?? "").trim();
+}
+
 export async function DELETE(request: Request) {
-  const adminKey = request.headers.get("X-Admin-Key");
-  const expected = process.env.REVIEW_ADMIN_SECRET;
+  const adminKey = normalizeSecret(request.headers.get("X-Admin-Key"));
+  const expected = normalizeSecret(process.env.REVIEW_ADMIN_SECRET);
   if (!expected || adminKey !== expected) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
