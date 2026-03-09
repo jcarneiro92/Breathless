@@ -6,6 +6,8 @@ import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 import { LanguageSelector } from "../components/LanguageSelector";
 import { RulesDropdown } from "../components/RulesDropdown";
+import { AuthButton } from "../components/AuthButton";
+import { useSession } from "next-auth/react";
 
 type Review = {
   id: string;
@@ -24,6 +26,8 @@ async function fetchReviews(): Promise<Review[]> {
 
 export default function ReviewPage() {
   const { t } = useLanguage();
+  const { data: session } = useSession();
+  const isReviewOwner = (session as any)?.isReviewOwner === true;
   const [reviews, setReviews] = useState<Review[]>([]);
   const [mounted, setMounted] = useState(false);
   const [name, setName] = useState("");
@@ -31,13 +35,10 @@ export default function ReviewPage() {
   const [hoverRating, setHoverRating] = useState(0);
   const [comment, setComment] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [adminKey, setAdminKey] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
-    const stored = sessionStorage.getItem("review-admin-key");
-    if (stored) setAdminKey(stored);
     fetchReviews().then((data) => {
       if (!cancelled) {
         setReviews(data);
@@ -48,6 +49,13 @@ export default function ReviewPage() {
       cancelled = true;
     };
   }, []);
+
+  // Prefill name with connected user name when available, but don't override manual edits
+  useEffect(() => {
+    if (!name && session?.user?.name) {
+      setName(session.user.name);
+    }
+  }, [session, name]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -78,39 +86,13 @@ export default function ReviewPage() {
 
   const displayRating = hoverRating || rating;
 
-  const enterAdmin = async () => {
-    const key = window.prompt("Admin key:");
-    if (key == null || !key.trim()) return;
-    const trimmed = key.trim();
-    const res = await fetch("/api/reviews/verify", {
-      headers: { "X-Admin-Key": trimmed },
-    });
-    if (!res.ok) {
-      alert("Invalid admin key.");
-      return;
-    }
-    sessionStorage.setItem("review-admin-key", trimmed);
-    setAdminKey(trimmed);
-  };
-
-  const exitAdmin = () => {
-    sessionStorage.removeItem("review-admin-key");
-    setAdminKey(null);
-  };
-
   const handleDelete = async (id: string) => {
-    if (!adminKey) return;
+    if (!isReviewOwner) return;
     setDeletingId(id);
     try {
       const res = await fetch(`/api/reviews?id=${encodeURIComponent(id)}`, {
         method: "DELETE",
-        headers: { "X-Admin-Key": adminKey },
       });
-      if (res.status === 401) {
-        sessionStorage.removeItem("review-admin-key");
-        setAdminKey(null);
-        return;
-      }
       if (!res.ok) return;
       const next = await res.json();
       setReviews(next);
@@ -168,6 +150,7 @@ export default function ReviewPage() {
             {t.nav.donate}
           </Link>
           <LanguageSelector />
+          <AuthButton />
         </div>
       </nav>
 
@@ -216,62 +199,75 @@ export default function ReviewPage() {
             {t.review.subtitle}
           </p>
 
-          <form
-            onSubmit={handleSubmit}
-            className="mb-12 rounded-xl border border-amber-500/30 bg-zinc-950/90 p-6 shadow-2xl backdrop-blur-sm md:p-8"
-          >
-            <label className="mb-2 block text-sm font-medium text-zinc-300">
-              {t.review.formName}
-            </label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              maxLength={60}
-              className="mb-4 w-full rounded-lg border border-zinc-600 bg-zinc-900/80 px-4 py-2.5 text-white placeholder-zinc-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
-              placeholder="Survivor name"
-            />
-            <label className="mb-2 block text-sm font-medium text-zinc-300">
-              {t.review.formRating}
-            </label>
-            <div className="mb-4 flex gap-1 text-2xl">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <button
-                  key={star}
-                  type="button"
-                  onClick={() => setRating(star)}
-                  onMouseEnter={() => setHoverRating(star)}
-                  onMouseLeave={() => setHoverRating(0)}
-                  className="transition-transform hover:scale-110"
-                  aria-label={`${star} star${star > 1 ? "s" : ""}`}
-                >
-                  <span className={star <= displayRating ? "text-amber-500" : "text-zinc-500"}>
-                    {star <= displayRating ? "★" : "☆"}
-                  </span>
-                </button>
-              ))}
+          {!session && (
+            <div className="mb-12 rounded-xl border border-zinc-800 bg-zinc-950/90 p-6 text-center text-zinc-300 shadow-2xl backdrop-blur-sm md:p-8">
+              <p className="mb-4">
+                You must be signed in with Discord to leave a review.
+              </p>
+              <div className="flex justify-center">
+                <AuthButton />
+              </div>
             </div>
-            <label className="mb-2 block text-sm font-medium text-zinc-300">
-              {t.review.formComment}
-            </label>
-            <textarea
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              required
-              rows={4}
-              maxLength={1000}
-              className="mb-6 w-full rounded-lg border border-zinc-600 bg-zinc-900/80 px-4 py-2.5 text-white placeholder-zinc-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
-              placeholder="Tell others about your experience..."
-            />
-            <button
-              type="submit"
-              disabled={submitting || !name.trim() || rating === 0 || !comment.trim()}
-              className="w-full rounded-lg bg-amber-500 px-6 py-3 font-semibold text-zinc-950 transition-colors hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
+          )}
+
+          {session && (
+            <form
+              onSubmit={handleSubmit}
+              className="mb-12 rounded-xl border border-amber-500/30 bg-zinc-950/90 p-6 shadow-2xl backdrop-blur-sm md:p-8"
             >
-              {t.review.submit}
-            </button>
-          </form>
+              <label className="mb-2 block text-sm font-medium text-zinc-300">
+                {t.review.formName}
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                maxLength={60}
+                className="mb-4 w-full rounded-lg border border-zinc-600 bg-zinc-900/80 px-4 py-2.5 text-white placeholder-zinc-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                placeholder="Survivor name"
+              />
+              <label className="mb-2 block text-sm font-medium text-zinc-300">
+                {t.review.formRating}
+              </label>
+              <div className="mb-4 flex gap-1 text-2xl">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    type="button"
+                    onClick={() => setRating(star)}
+                    onMouseEnter={() => setHoverRating(star)}
+                    onMouseLeave={() => setHoverRating(0)}
+                    className="transition-transform hover:scale-110"
+                    aria-label={`${star} star${star > 1 ? "s" : ""}`}
+                  >
+                    <span className={star <= displayRating ? "text-amber-500" : "text-zinc-500"}>
+                      {star <= displayRating ? "★" : "☆"}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              <label className="mb-2 block text-sm font-medium text-zinc-300">
+                {t.review.formComment}
+              </label>
+              <textarea
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                required
+                rows={4}
+                maxLength={1000}
+                className="mb-6 w-full rounded-lg border border-zinc-600 bg-zinc-900/80 px-4 py-2.5 text-white placeholder-zinc-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                placeholder="Tell others about your experience..."
+              />
+              <button
+                type="submit"
+                disabled={submitting || !name.trim() || rating === 0 || !comment.trim()}
+                className="w-full rounded-lg bg-amber-500 px-6 py-3 font-semibold text-zinc-950 transition-colors hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {t.review.submit}
+              </button>
+            </form>
+          )}
 
           <div className="space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
@@ -280,23 +276,6 @@ export default function ReviewPage() {
                   ? t.review.noReviews
                   : `${t.review.reviewsCount} (${reviews.length})`}
               </h2>
-              {adminKey ? (
-                <button
-                  type="button"
-                  onClick={exitAdmin}
-                  className="text-sm text-zinc-400 hover:text-amber-500"
-                >
-                  {t.review.exitAdmin}
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={enterAdmin}
-                  className="text-sm text-zinc-500 hover:text-zinc-400"
-                >
-                  {t.review.adminMode}
-                </button>
-              )}
             </div>
             {mounted && reviews.map((r) => (
               <article
@@ -310,7 +289,7 @@ export default function ReviewPage() {
                       {"★".repeat(r.rating)}
                       {"☆".repeat(5 - r.rating)}
                     </div>
-                    {adminKey && (
+                    {isReviewOwner && (
                       <button
                         type="button"
                         onClick={() => handleDelete(r.id)}

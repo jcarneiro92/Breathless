@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getReviews, addReview, deleteReview, type Review } from "@/lib/reviews";
 
 export async function GET() {
@@ -41,15 +43,11 @@ export async function POST(request: Request) {
   }
 }
 
-function normalizeSecret(s: string | null | undefined): string {
-  return (s ?? "").trim();
-}
-
 export async function DELETE(request: Request) {
-  const adminKey = normalizeSecret(request.headers.get("X-Admin-Key"));
-  const expected = normalizeSecret(process.env.REVIEW_ADMIN_SECRET);
-  if (!expected || adminKey !== expected) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const session = await getServerSession(authOptions);
+  const isReviewOwner = (session as any)?.isReviewOwner === true;
+  if (!isReviewOwner) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id");

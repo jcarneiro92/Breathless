@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 import { LanguageSelector } from "../components/LanguageSelector";
 import { RulesDropdown } from "../components/RulesDropdown";
+import { AuthButton } from "../components/AuthButton";
 
 const storyContent = `🩸🌑 The Story of Breathless 🌑🩸
 
@@ -106,6 +107,7 @@ export default function StoryPage() {
             {t.nav.donate}
           </Link>
           <LanguageSelector />
+          <AuthButton />
         </div>
       </nav>
 

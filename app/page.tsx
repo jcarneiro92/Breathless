@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useLanguage } from "./context/LanguageContext";
 import { LanguageSelector } from "./components/LanguageSelector";
 import { RulesDropdown } from "./components/RulesDropdown";
+import { AuthButton } from "./components/AuthButton";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -64,6 +65,7 @@ export default function Home() {
               {t.nav.donate}
             </Link>
             <LanguageSelector />
+            <AuthButton />
           </div>
         </nav>
 
