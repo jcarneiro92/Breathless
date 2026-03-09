@@ -142,7 +142,7 @@ export default function ReviewPage() {
             {t.nav.discord}
           </Link>
           <Link
-            href="https://ko-fi.com/breathlesspve"
+            href="https://breathless.tip4serv.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-medium text-zinc-400 transition-colors hover:text-amber-500"
@@ -367,6 +367,14 @@ export default function ReviewPage() {
                 className="text-sm text-zinc-500 hover:text-amber-500"
               >
                 {t.footer.discord}
+              </Link>
+              <Link
+                href="https://breathless.tip4serv.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-zinc-500 hover:text-amber-500"
+              >
+                {t.footer.donate}
               </Link>
             </div>
           </div>
