@@ -1,8 +1,12 @@
 export const languages = [
   { code: "en", name: "English", flag: "🇬🇧" },
+  { code: "pt", name: "Português", flag: "🇵🇹" },
+  { code: "es", name: "Español", flag: "🇪🇸" },
+  { code: "de", name: "Deutsch", flag: "🇩🇪" },
+  { code: "ja", name: "日本語", flag: "🇯🇵" },
 ] as const;
 
-export type LanguageCode = "en";
+export type LanguageCode = "en" | "pt" | "es" | "de" | "ja";
 
 export const translations: Record<
   LanguageCode,
@@ -87,6 +91,242 @@ export const translations: Record<
       adminMode: "Admin",
       exitAdmin: "Exit admin",
       deleteReview: "Delete",
+    },
+  },
+  pt: {
+    nav: {
+      rules: "Regras",
+      story: "História",
+      review: "Avaliações",
+      discord: "Discord",
+      donate: "Doar",
+    },
+    hero: {
+      badge: "Servidor DayZ",
+      title: "Sobreviva. Explore. ",
+      titleHighlight: "Conquiste.",
+      subtitle:
+        "Junte‑se a uma comunidade de sobreviventes. Um servidor DayZ único com mods selecionados para uma experiência imersiva.",
+      joinServer: "Entrar com DayZ Beans Launcher",
+      discord: "Entre no nosso Discord",
+    },
+    features: {
+      title: "Por que Breathless?",
+      mods: {
+        title: "Mods otimizados",
+        description:
+          "Uma seleção de mods para melhorar a sua experiência sem comprometer o desempenho.",
+      },
+      staff: {
+        title: "Staff ativa",
+        description:
+          "Uma equipa dedicada para manter um ambiente de jogo justo e divertido.",
+      },
+      community: {
+        title: "Comunidade",
+        description:
+          "Junte‑se a uma comunidade de jogadores apaixonados e viva aventuras inesquecíveis.",
+      },
+    },
+    footer: {
+      rights: "Todos os direitos reservados.",
+      story: "História",
+      rules: "Regras",
+      review: "Avaliações",
+      discord: "Discord",
+      donate: "Doar",
+    },
+    review: {
+      title: "Avaliações do Servidor",
+      subtitle:
+        "Partilhe a sua experiência no Breathless. O seu feedback ajuda outros sobreviventes.",
+      formName: "Nome ou nome no jogo",
+      formRating: "Classificação",
+      formComment: "A sua avaliação",
+      submit: "Enviar avaliação",
+      noReviews:
+        "Ainda não há avaliações. Seja o primeiro a partilhar a sua experiência!",
+      reviewsCount: "Avaliações",
+      adminMode: "Admin",
+      exitAdmin: "Sair do modo admin",
+      deleteReview: "Apagar",
+    },
+  },
+  es: {
+    nav: {
+      rules: "Normas",
+      story: "Historia",
+      review: "Reseñas",
+      discord: "Discord",
+      donate: "Donar",
+    },
+    hero: {
+      badge: "Servidor de DayZ",
+      title: "Sobrevive. Explora. ",
+      titleHighlight: "Conquista.",
+      subtitle:
+        "Únete a una comunidad de supervivientes. Un servidor de DayZ único con mods seleccionados para una experiencia inmersiva.",
+      joinServer: "Unirse con DayZ Beans Launcher",
+      discord: "Únete a nuestro Discord",
+    },
+    features: {
+      title: "¿Por qué Breathless?",
+      mods: {
+        title: "Mods optimizados",
+        description:
+          "Una selección de mods para mejorar tu experiencia sin sacrificar el rendimiento.",
+      },
+      staff: {
+        title: "Staff activa",
+        description:
+          "Un equipo dedicado para mantener un entorno de juego justo y divertido.",
+      },
+      community: {
+        title: "Comunidad",
+        description:
+          "Únete a una comunidad de jugadores apasionados y vive aventuras inolvidables.",
+      },
+    },
+    footer: {
+      rights: "Todos los derechos reservados.",
+      story: "Historia",
+      rules: "Normas",
+      review: "Reseñas",
+      discord: "Discord",
+      donate: "Donar",
+    },
+    review: {
+      title: "Reseñas del servidor",
+      subtitle:
+        "Comparte tu experiencia en Breathless. Tus comentarios ayudan a otros supervivientes.",
+      formName: "Nombre o nombre en el juego",
+      formRating: "Valoración",
+      formComment: "Tu reseña",
+      submit: "Enviar reseña",
+      noReviews:
+        "Todavía no hay reseñas. ¡Sé el primero en compartir tu experiencia!",
+      reviewsCount: "Reseñas",
+      adminMode: "Admin",
+      exitAdmin: "Salir de admin",
+      deleteReview: "Eliminar",
+    },
+  },
+  de: {
+    nav: {
+      rules: "Regeln",
+      story: "Story",
+      review: "Bewertungen",
+      discord: "Discord",
+      donate: "Spenden",
+    },
+    hero: {
+      badge: "DayZ‑Server",
+      title: "Überlebe. Erkunde. ",
+      titleHighlight: "Erobere.",
+      subtitle:
+        "Schließe dich einer Community von Überlebenden an. Ein einzigartiger DayZ‑Server mit sorgfältig ausgewählten Mods für ein intensives Erlebnis.",
+      joinServer: "Mit DayZ Beans Launcher beitreten",
+      discord: "Tritt unserem Discord bei",
+    },
+    features: {
+      title: "Warum Breathless?",
+      mods: {
+        title: "Optimierte Mods",
+        description:
+          "Eine Auswahl an Mods, die dein Erlebnis verbessern, ohne die Performance zu beeinträchtigen.",
+      },
+      staff: {
+        title: "Aktives Team",
+        description:
+          "Ein engagiertes Team, das für eine faire und angenehme Spielumgebung sorgt.",
+      },
+      community: {
+        title: "Community",
+        description:
+          "Tritt einer leidenschaftlichen Spielergemeinschaft bei und erlebe unvergessliche Abenteuer.",
+      },
+    },
+    footer: {
+      rights: "Alle Rechte vorbehalten.",
+      story: "Story",
+      rules: "Regeln",
+      review: "Bewertungen",
+      discord: "Discord",
+      donate: "Spenden",
+    },
+    review: {
+      title: "Server‑Bewertungen",
+      subtitle:
+        "Teile deine Erfahrung mit Breathless. Dein Feedback hilft anderen Überlebenden.",
+      formName: "Name oder In‑Game‑Name",
+      formRating: "Bewertung",
+      formComment: "Deine Bewertung",
+      submit: "Bewertung absenden",
+      noReviews:
+        "Noch keine Bewertungen. Sei der Erste, der seine Erfahrung teilt!",
+      reviewsCount: "Bewertungen",
+      adminMode: "Admin",
+      exitAdmin: "Adminmodus verlassen",
+      deleteReview: "Löschen",
+    },
+  },
+  ja: {
+    nav: {
+      rules: "ルール",
+      story: "ストーリー",
+      review: "レビュー",
+      discord: "Discord",
+      donate: "寄付",
+    },
+    hero: {
+      badge: "DayZ サーバー",
+      title: "生き残れ。探索せよ。 ",
+      titleHighlight: "そして征服せよ。",
+      subtitle:
+        "生存者たちのコミュニティに参加しよう。厳選された MOD で没入感あふれる体験ができる特別な DayZ サーバーです。",
+      joinServer: "DayZ Beans Launcher で参加",
+      discord: "Discord に参加する",
+    },
+    features: {
+      title: "なぜ Breathless なのか？",
+      mods: {
+        title: "最適化された MOD",
+        description:
+          "パフォーマンスを損なわず、体験を向上させるために選び抜かれた MOD 構成です。",
+      },
+      staff: {
+        title: "アクティブなスタッフ",
+        description:
+          "公平で楽しい環境を維持するための献身的なスタッフチーム。",
+      },
+      community: {
+        title: "コミュニティ",
+        description:
+          "情熱的なプレイヤーたちと共に、忘れられない冒険を体験しましょう。",
+      },
+    },
+    footer: {
+      rights: "All rights reserved.",
+      story: "ストーリー",
+      rules: "ルール",
+      review: "レビュー",
+      discord: "Discord",
+      donate: "寄付",
+    },
+    review: {
+      title: "サーバーレビュー",
+      subtitle:
+        "Breathless での体験を共有してください。あなたのフィードバックは他の生存者の助けになります。",
+      formName: "名前またはゲーム内の名前",
+      formRating: "評価",
+      formComment: "レビュー内容",
+      submit: "レビューを送信",
+      noReviews:
+        "まだレビューはありません。最初の生存者として体験を共有しましょう！",
+      reviewsCount: "レビュー",
+      adminMode: "管理者",
+      exitAdmin: "管理者モードを終了",
+      deleteReview: "削除",
     },
   },
 };
