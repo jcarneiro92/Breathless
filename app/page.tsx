@@ -80,32 +80,16 @@ export default function Home() {
           <p className="mb-12 max-w-2xl text-center text-lg text-zinc-400">
             {t.hero.subtitle}
           </p>
-          <Link
-              href="https://dayzbeanslauncher.com/download?ref=HUSXSUV9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full max-w-[140px] transition-opacity hover:opacity-90"
-            >
-              <Image
-                src="/beans.png"
-                alt="DayZ Beans Launcher"
-                width={140}
-                height={35}
-                className="h-auto w-full rounded-lg object-contain"
-              />
-            </Link>
-            <br/>
-            <br/>
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="flex flex-col gap-4 sm:flex-row mt-4">
           
-            <Link
-              href="dayzbeans://server/connect/37.187.150.189:2302"
+            <button
               className="rounded-lg bg-amber-500 px-8 py-4 font-semibold text-zinc-950 transition-all hover:bg-amber-400"
+              type="button"
             >
               <span className="flex items-center gap-3">
                 <span>{t.hero.joinServer}</span>
               </span>
-            </Link>
+            </button>
             <Link
               href="https://discord.gg/E9HXhsQssW"
               target="_blank"
@@ -118,42 +102,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Partner Discord links - just below header, top right */}
-      <div className="absolute top-35 right-0 z-10 flex justify-end px-4 py-2 md:top-35 md:px-12">
-        <div className="flex items-center gap-10">
-          <Link
-            href="https://discord.gg/2nQcNzc7qf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center transition-opacity hover:opacity-90"
-            title="VYKIX Discord"
-          >
-            <Image
-              src="/v.ico"
-              alt="VYKIX Discord"
-              width={240}
-              height={40}
-              className="h-10 w-auto max-w-[200px] object-contain sm:max-w-[240px]"
-              unoptimized
-            />
-          </Link>
-          <Link
-            href="https://discord.gg/PNpDF7cV74"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center transition-opacity hover:opacity-90"
-            title="DayZ Beans Launcher Discord"
-          >
-            <Image
-              src="/dayz_beans_launcher.ico"
-              alt="DayZ Beans Launcher Discord"
-              width={48}
-              height={48}
-              className="h-12 w-12"
-            />
-          </Link>
-        </div>
-      </div>
+      {/* Partner section removed */}
 
       {/* Features Section */}
       <section className="border-t border-zinc-800/80 bg-zinc-950/50 backdrop-blur-sm px-6 py-20 md:px-12">
@@ -190,38 +139,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-zinc-800/80 bg-zinc-950/60 backdrop-blur-sm px-6 py-8 md:px-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6">
-          {/* Partner Banners */}
-          <div className="flex w-full flex-col items-center justify-center gap-4 md:flex-row md:justify-between">
-            <Link
-              href="https://www.vykix.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full max-w-md transition-opacity hover:opacity-90"
-            >
-              <Image
-                src="/vykix.gif"
-                alt="VYKIX - DayZ Game Server Hosting"
-                width={468}
-                height={60}
-                className="h-auto w-full rounded-lg object-contain"
-                unoptimized
-              />
-            </Link>
-            <Link
-              href="https://dayzbeanslauncher.com/download?ref=HUSXSUV9"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full max-w-[140px] transition-opacity hover:opacity-90"
-            >
-              <Image
-                src="/beans.png"
-                alt="DayZ Beans Launcher"
-                width={140}
-                height={35}
-                className="h-auto w-full rounded-lg object-contain"
-              />
-            </Link>
-          </div>
+          {/* Partner section removed */}
           <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
             <span className="text-sm text-zinc-500">
               © {new Date().getFullYear()} Breathless. {t.footer.rights}
