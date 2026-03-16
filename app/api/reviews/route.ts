@@ -34,6 +34,22 @@ export async function POST(request: Request) {
       date: new Date().toISOString(),
     };
     const reviews = await addReview(review);
+
+    // Fire-and-forget Discord webhook; failures won't affect API response
+    const webhookUrl =
+      "https://discord.com/api/webhooks/1483031055890907248/QH1DXfTetW-6Jrg9ajJ1WVooyOiJUWbvoMoi41aujeNN1bQIUvz4K2WU9i3e9dQciT3i";
+    try {
+      await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          content: `New review submitted on Breathless:\n**Name:** ${review.name}\n**Rating:** ${review.rating}/5\n**Comment:** ${review.comment}`,
+        }),
+      });
+    } catch {
+      // Ignore webhook errors to avoid breaking the main flow
+    }
+
     return NextResponse.json(reviews);
   } catch (e) {
     return NextResponse.json(
