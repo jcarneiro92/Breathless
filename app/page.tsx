@@ -139,7 +139,25 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-zinc-800/80 bg-zinc-950/60 backdrop-blur-sm px-6 py-8 md:px-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6">
-          {/* Partner section removed */}
+          <div className="flex items-center gap-3 rounded-lg border border-zinc-800 bg-zinc-900/40 px-4 py-2">
+            <span className="text-xs font-medium uppercase tracking-wide text-zinc-400">
+              Partner
+            </span>
+            <Link
+              href="https://www.vykix.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Vykix website in a new tab"
+            >
+              <Image
+                src="/vykix.gif"
+                alt="Vykix"
+                width={120}
+                height={40}
+                className="h-8 w-auto rounded"
+              />
+            </Link>
+          </div>
           <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
             <span className="text-sm text-zinc-500">
               © {new Date().getFullYear()} Breathless. {t.footer.rights}
