@@ -67,15 +67,32 @@ export default function StoryPage() {
 
       {/* Nav */}
       <nav className="relative z-10 flex flex-wrap items-center justify-center gap-4 px-4 py-4 sm:px-6 md:px-12 md:py-6 md:justify-between">
-        <Link href="/" className="flex items-center justify-center">
-          <Image
-            src="/KongIcon.png"
-            alt="Breathless"
-            width={280}
-            height={80}
-            className="h-10 w-auto sm:h-12 md:h-16"
-          />
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center justify-center">
+            <Image
+              src="/KongIcon.png"
+              alt="Breathless"
+              width={280}
+              height={80}
+              className="h-10 w-auto sm:h-12 md:h-16"
+            />
+          </Link>
+          <Link
+            href="https://discord.gg/2nQcNzc7qf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open VYKIX Discord in a new tab"
+            className="rounded transition-opacity hover:opacity-80"
+          >
+            <Image
+              src="/v.ico"
+              alt="VYKIX Discord"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+            />
+          </Link>
+        </div>
         <div className="-mt-1 flex flex-wrap items-center justify-center gap-3 text-sm sm:gap-4 md:ml-auto md:justify-end">
           <RulesDropdown />
           <Link
@@ -110,18 +127,6 @@ export default function StoryPage() {
           <AuthButton />
         </div>
       </nav>
-      <div className="relative z-10 -mt-1 flex justify-center px-4 sm:px-6 md:justify-end md:px-12">
-        <Link
-          href="https://discord.gg/2nQcNzc7qf"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open VYKIX Discord in a new tab"
-          className="rounded transition-opacity hover:opacity-80"
-        >
-          <Image src="/v.ico" alt="VYKIX Discord" width={28} height={28} className="h-7 w-7" />
-        </Link>
-      </div>
-
       {/* External partner links removed */}
 
       {/* Story Tab Content */}

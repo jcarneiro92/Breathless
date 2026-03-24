@@ -24,16 +24,33 @@ export default function Home() {
       <header className="relative">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#4040400a_1px,transparent_1px),linear-gradient(to_bottom,#4040400a_1px,transparent_1px)] bg-[size:24px_24px] opacity-30" />
         <nav className="relative z-10 flex flex-wrap items-center justify-center gap-4 px-4 py-4 sm:px-6 md:px-12 md:py-6 md:justify-between">
-          <Link href="/" className="flex items-center justify-center">
-            <Image
-              src="/KongIcon.png"
-              alt="Breathless"
-              width={280}
-              height={80}
-              className="h-20 w-auto sm:h-24 md:h-28"
-              priority
-            />
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center justify-center">
+              <Image
+                src="/KongIcon.png"
+                alt="Breathless"
+                width={280}
+                height={80}
+                className="h-20 w-auto sm:h-24 md:h-28"
+                priority
+              />
+            </Link>
+            <Link
+              href="https://discord.gg/2nQcNzc7qf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open VYKIX Discord in a new tab"
+              className="rounded transition-opacity hover:opacity-80"
+            >
+              <Image
+                src="/v.ico"
+                alt="VYKIX Discord"
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
+            </Link>
+          </div>
           <div className="-mt-1 flex flex-wrap items-center justify-center gap-3 text-sm sm:gap-4 md:ml-auto md:justify-end">
             <RulesDropdown />
             <Link
@@ -68,18 +85,6 @@ export default function Home() {
             <AuthButton />
           </div>
         </nav>
-        <div className="relative z-10 -mt-1 flex justify-center px-4 sm:px-6 md:justify-end md:px-12">
-          <Link
-            href="https://discord.gg/2nQcNzc7qf"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open VYKIX Discord in a new tab"
-            className="rounded transition-opacity hover:opacity-80"
-          >
-            <Image src="/v.ico" alt="VYKIX Discord" width={28} height={28} className="h-7 w-7" />
-          </Link>
-        </div>
-
         <div className="relative z-10 flex flex-col items-center justify-center px-6 py-24 md:py-32">
           <div className="mb-4 inline-block rounded border border-amber-500/50 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-500">
             {t.hero.badge}
