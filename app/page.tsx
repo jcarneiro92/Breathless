@@ -68,6 +68,17 @@ export default function Home() {
             <AuthButton />
           </div>
         </nav>
+        <div className="relative z-10 -mt-1 flex justify-center px-4 sm:px-6 md:justify-end md:px-12">
+          <Link
+            href="https://discord.gg/2nQcNzc7qf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open VYKIX Discord in a new tab"
+            className="rounded transition-opacity hover:opacity-80"
+          >
+            <Image src="/v.ico" alt="VYKIX Discord" width={28} height={28} className="h-7 w-7" />
+          </Link>
+        </div>
 
         <div className="relative z-10 flex flex-col items-center justify-center px-6 py-24 md:py-32">
           <div className="mb-4 inline-block rounded border border-amber-500/50 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-500">
