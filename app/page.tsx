@@ -33,6 +33,7 @@ export default function Home() {
                 height={80}
                 className="h-20 w-auto sm:h-24 md:h-28"
                 priority
+              unoptimized
               />
             </Link>
             <Link
@@ -98,14 +99,6 @@ export default function Home() {
           </p>
           <div className="flex flex-col gap-4 sm:flex-row mt-4">
           
-            <button
-              className="rounded-lg bg-amber-500 px-8 py-4 font-semibold text-zinc-950 transition-all hover:bg-amber-400"
-              type="button"
-            >
-              <span className="flex items-center gap-3">
-                <span>{t.hero.joinServer}</span>
-              </span>
-            </button>
             <Link
               href="https://discord.gg/E9HXhsQssW"
               target="_blank"
@@ -171,6 +164,7 @@ export default function Home() {
                 width={120}
                 height={40}
                 className="h-8 w-auto rounded"
+                unoptimized
               />
             </Link>
           </div>

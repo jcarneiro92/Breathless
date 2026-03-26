@@ -118,6 +118,7 @@ export default function ReviewPage() {
               width={280}
               height={80}
               className="h-10 w-auto sm:h-12 md:h-16"
+            unoptimized
             />
           </Link>
           <Link
@@ -313,6 +314,7 @@ export default function ReviewPage() {
                 width={120}
                 height={40}
                 className="h-8 w-auto rounded"
+                unoptimized
               />
             </Link>
           </div>

@@ -50,7 +50,7 @@ export const translations: Record<
       titleHighlight: "Conquer.",
       subtitle:
         "Join a community of survivors. A unique DayZ server with carefully selected mods for an immersive experience.",
-      joinServer: "Join with DayZ Beans Launcher",
+      joinServer: "Join with Dayz SA",
       discord: "Join us on Discord",
     },
     features: {
@@ -107,7 +107,7 @@ export const translations: Record<
       titleHighlight: "Conquiste.",
       subtitle:
         "Junte‑se a uma comunidade de sobreviventes. Um servidor DayZ único com mods selecionados para uma experiência imersiva.",
-      joinServer: "Entrar com DayZ Beans Launcher",
+      joinServer: "Entrar com Dayz SA",
       discord: "Entre no nosso Discord",
     },
     features: {
@@ -166,7 +166,7 @@ export const translations: Record<
       titleHighlight: "Conquista.",
       subtitle:
         "Únete a una comunidad de supervivientes. Un servidor de DayZ único con mods seleccionados para una experiencia inmersiva.",
-      joinServer: "Unirse con DayZ Beans Launcher",
+      joinServer: "Unirse con Dayz SA",
       discord: "Únete a nuestro Discord",
     },
     features: {
@@ -225,7 +225,7 @@ export const translations: Record<
       titleHighlight: "Erobere.",
       subtitle:
         "Schließe dich einer Community von Überlebenden an. Ein einzigartiger DayZ‑Server mit sorgfältig ausgewählten Mods für ein intensives Erlebnis.",
-      joinServer: "Mit DayZ Beans Launcher beitreten",
+      joinServer: "Mit Dayz SA beitreten",
       discord: "Tritt unserem Discord bei",
     },
     features: {
@@ -284,7 +284,7 @@ export const translations: Record<
       titleHighlight: "そして征服せよ。",
       subtitle:
         "生存者たちのコミュニティに参加しよう。厳選された MOD で没入感あふれる体験ができる特別な DayZ サーバーです。",
-      joinServer: "DayZ Beans Launcher で参加",
+      joinServer: "Dayz SA で参加",
       discord: "Discord に参加する",
     },
     features: {
